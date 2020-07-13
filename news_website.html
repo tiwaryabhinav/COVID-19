@@ -16,8 +16,10 @@
 </head>
 
 <body onload="updateclock();getnews();setInterval('updateclock()',1000)">
+  <div id="alertmsg">
+  </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav_background">
-    <a class="navbar-brand" href="news_website.html"><button class="btn btn-primary">Home</button></a>
+    <a class="navbar-brand active" href="news_website.html"><button class="btn btn-primary">Home</button></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,7 +39,7 @@
           </button>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalSignIn">
             Sign Up
           </button>
         </li>
@@ -58,26 +60,96 @@
   <div class="container" id="main-content">
   </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Your Credentials</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="signin">Sign In</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  
+  
+  
+  <div class="modal fade" id="exampleModalSignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Subscribe to Premium Pack</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="signup_name">Name</label>
+              <input type="text" class="form-control" id="signup_name"" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <div class="col-md-3">
+                <label for="validationCustom04">State</label>
+                <select class="custom-select" id="validationCustom04" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option>India</option>
+                  <option>USA</option>
+                  <option>Netherlands</option>
+                  <option>Bhutan</option>
+                  <option>Bangladesh</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid state.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="signup_mail">Email address</label>
+              <input type="email" class="form-control" id="signup_mail" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="pswrd">Password</label>
+              <input type="password" class="form-control" id="pswrd" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">special characters are allowed</small>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="signup">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

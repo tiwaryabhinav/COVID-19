@@ -16,6 +16,8 @@
 </head>
 
 <body onload="updateclock();getnews();setInterval('updateclock()',1000)">
+  <div id="alertmsg">
+  </div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav_background">
     <a class="navbar-brand" href="news_website.html"><button class="btn btn-primary">Home</button></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="covid.html" style="color: black;font-weight: 500;"><button class="btn btn-primary">COVID-19</button></a>
+          <a class="nav-link active" href="covid.html" style="color: black;font-weight: 500;"><button class="btn btn-primary">COVID-19</button></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#" style="color: black; font-weight: 500;"> <button class="btn btn-primary">FETCH API</button><span class="sr-only">(current)</span></a>
@@ -78,7 +80,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Subscribe to Premium Pack</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Enter Your Credentials</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -102,7 +104,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign In</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="signin">Sign In</button>
       </div>
     </div>
   </div>
@@ -122,9 +124,8 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">Name</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="signup_name">Name</label>
+            <input type="text" class="form-control" id="signup_name"" aria-describedby="emailHelp">
           </div>
           <div class="form-group">
             <div class="col-md-3">
@@ -143,13 +144,13 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="signup_mail">Email address</label>
+            <input type="email" class="form-control" id="signup_mail" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputEmail1">Password</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <label for="pswrd">Password</label>
+            <input type="password" class="form-control" id="pswrd" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">special characters are allowed</small>
           </div>
           <div class="form-group form-check">
@@ -160,7 +161,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Sign Up</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="signup">Sign Up</button>
       </div>
     </div>
   </div>

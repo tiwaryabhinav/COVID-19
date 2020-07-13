@@ -3,8 +3,14 @@ function updateclock()
 {
     let time=new Date();
     let currhr=time.getHours();
+    if(currhr<10)
+    currhr="0"+currhr;
     let currmin=time.getMinutes();
+    if(currmin<10)
+    currmin="0"+currmin;
     let currsec=time.getSeconds();
+    if(currsec<10)
+    currsec="0"+currsec;
     date.innerHTML=currhr+":"+currmin+":"+currsec;
 }
 
@@ -57,7 +63,6 @@ function covid()
   let tablebody = document.getElementById('tablebody');
   let uistr='';
   let obj=JSON.parse(data);
-  console.log(obj.state);
   obj.state.forEach((element)=>{
     if(element['name']!='Cases being reassigned to states')
     {
@@ -75,3 +80,37 @@ function covid()
 })
 }
 covid();
+
+let signup=document.getElementById('signup');
+signup.addEventListener('click',function()
+{
+  let signup_name=document.getElementById('signup_name');
+  let signup_mail=document.getElementById('signup_mail');
+  let pswrd=document.getElementById('pswrd');
+  if(signup_name.value.length>0 && signup_mail.value.length>0 && pswrd.value.length>0)
+  {
+    let alert=document.getElementById('alertmsg');
+    alert.innerHTML=`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Great </strong>Succesfully Registered
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>`;
+    setTimeout(function () {
+        alert.innerHTML = ``;
+    }, 5000);
+  }
+  else
+  {
+    let alert=document.getElementById('alertmsg');
+    alert.innerHTML=`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Error </strong>Incorrect Details
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>`;
+    setTimeout(function () {
+        alert.innerHTML = ``;
+    }, 5000);
+  }
+})
