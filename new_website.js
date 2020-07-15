@@ -52,10 +52,6 @@ function getnews()
     })
 }
 getnews();
-
-
-
-
 function covid()
 {
   url='https://api.rootnet.in/covid19-in/stats/latest';
