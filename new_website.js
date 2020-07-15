@@ -51,6 +51,7 @@ function getnews()
         content.innerHTML=str;
     })
 }
+getnews();
 
 
 
