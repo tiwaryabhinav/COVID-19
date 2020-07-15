@@ -53,9 +53,11 @@ function getnews()
 }
 
 
+
+
 function covid()
 {
-  url='http://covid19-india-adhikansh.herokuapp.com/states';
+  url='https://api.rootnet.in/covid19-in/stats/latest';
   fetch(url).then(function(response)
   {
     return response.text();
@@ -63,18 +65,14 @@ function covid()
   let tablebody = document.getElementById('tablebody');
   let uistr='';
   let obj=JSON.parse(data);
-  obj.state.forEach((element)=>{
-    if(element['name']!='Cases being reassigned to states')
-    {
+  obj.data.regional.forEach((element)=>{
     uistr+=`<tr>
-    <td>${element['name']}</td>
-    <td>${element['total']}</td>
-    <td>${element['active']}</td>
-    <td>${element['cured']}</td>
-    <td>${element['death']}</td>
-</tr>
-<br>`
-    }
+    <td>${element["loc"]}</td>
+    <td>${element["totalConfirmed"]}</td>
+    <td>${element["confirmedCasesIndian"]}</td>
+    <td>${element["discharged"]}</td>
+    <td>${element["deaths"]}</td>
+</tr>`;
   });
   tablebody.innerHTML=uistr;
 })
