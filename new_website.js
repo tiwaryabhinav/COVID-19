@@ -37,7 +37,7 @@ function getnews() {
                 <img src="${element['urlToImage']}" class="img-thumbnail news_image" alt="IMAGE NOT AVAILABLE">
                 <br>
                 <br>
-               <p>${element['content']}</p>
+               <p id='news_content_more'>${element['content']}</p>
                <a href="${element['url']}" target="_blank" >Read More..</a>
                 </div>
               </div>
@@ -71,7 +71,6 @@ function covid() {
   })
 }
 covid();
-
 let signup = document.getElementById('signup');
 signup.addEventListener('click', function () {
   let signup_name = document.getElementById('signup_name');

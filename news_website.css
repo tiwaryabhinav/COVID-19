@@ -9,6 +9,7 @@ html{
 }
 
 
+
 .social_icons_img{
     list-style: none;
     height: 20px;
@@ -53,7 +54,7 @@ html{
 #date
 {
     font-family: 'Bangers', cursive;
-    color:#CAC8C7;
+    color:purple;
 }
 
 .news_image
@@ -62,15 +63,17 @@ html{
     height: auto;
 }
 
-#news_background
-{
-    background-color: #F0F8FF;
-}
 
 #news_content
 {
 font-family: 'PT Sans Narrow', sans-serif;
     font-size: 200%;
+}
+
+#news_content_more
+{
+    font-family: 'Satisfy', cursive;
+    font-size: 150%;
 }
 
 .btn{
@@ -81,5 +84,16 @@ font-family: 'PT Sans Narrow', sans-serif;
 .btn:active
 {
     background-color: skyblue;
+}
+
+#accordionExample
+{
+    box-shadow: 0 0 10px;
+}
+
+#accordionExample:hover,
+#acordionExample:active{
+    box-shadow: 5px 5px 10px;
+    overflow: hidden;
 }
 
