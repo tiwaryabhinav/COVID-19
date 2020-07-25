@@ -13,49 +13,13 @@ function updateclock() {
   date.innerHTML = currhr + ":" + currmin + ":" + currsec;
 }
 
-function getnews() {
-  let content = document.getElementById('main-content');
-  let str = '';
-  url = 'http://newsapi.org/v2/top-headlines?country=in&apiKey=38f3b7aa55ca46c783055e85544e8bcd';
-  fetch(url).then((response) => {
-    return response.text();
-  }).then((data) => {
-    let obj = JSON.parse(data);
-    obj.articles.forEach(function (element, index) {
-      str += `<div class="accordion" id="accordionExample">
-            <div class="card" id="news_link_title">
-              <div class="card-header" id="heading${index}">
-                <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse${index}" aria-expanded="true" aria-controls="collapse${index}">
-                    <p id="news_content">${element['title']}</p>
-                  </button>
-                </h2>
-              </div>
-          
-              <div id="collapse${index}" class="collapse show" aria-labelledby="heading${index}" data-parent="#accordionExample">
-                <div class="card-body" id="news_background">
-                <img src="${element['urlToImage']}" class="img-thumbnail news_image" alt="IMAGE NOT AVAILABLE">
-                <br>
-                <br>
-               <p id='news_content_more'>${element['content']}</p>
-               <a href="${element['url']}" target="_blank" >Read More..</a>
-                </div>
-              </div>
-            </div>
-            </div>
-            <br>`
-    });
-    content.innerHTML = str;
-    console.log(content.innerHTML);
-  })
-}
-getnews();
+
 function covid() {
   url = 'https://api.rootnet.in/covid19-in/stats/latest';
   fetch(url).then(function (response) {
     return response.text();
   }).then((data) => {
-    let tablebody = document.getElementById('tablebody');
+    let tablebody = document.getElementById('tablebody_covid');
     let uistr = '';
     let obj = JSON.parse(data);
     obj.data.regional.forEach((element) => {
@@ -71,6 +35,84 @@ function covid() {
   })
 }
 covid();
+
+function beds() {
+  url = 'https://api.rootnet.in/covid19-in/hospitals/beds';
+  fetch(url).then(function (response) {
+    return response.text();
+  }).then((data) => {
+    let tablebody = document.getElementById('tablebody_beds');
+    let uistr = '';
+    let obj = JSON.parse(data);
+    obj.data.regional.forEach((element) => {
+      uistr += `<tr>
+    <td>${element["state"]}</td>
+    <td>${element["ruralHospitals"]}</td>
+    <td>${element["ruralBeds"]}</td>
+    <td>${element["urbanHospitals"]}</td>
+    <td>${element["urbanBeds"]}</td>
+    <td>${element["totalHospitals"]}</td>
+    <td>${element["totalBeds"]}</td>
+</tr>`;
+    });
+    tablebody.innerHTML = uistr;
+  })
+}
+beds();
+
+function colleges() {
+  url = 'https://api.rootnet.in/covid19-in/hospitals/medical-colleges';
+  fetch(url).then(function (response) {
+    return response.text();
+  }).then((data) => {
+    let tablebody = document.getElementById('tablebody_colleges');
+    let uistr = '';
+    let obj = JSON.parse(data);
+    obj.data.medicalColleges.forEach((element) => {
+      uistr += `<tr>
+    <td>${element["name"]}</td>
+    <td>${element["state"]}</td>
+    <td>${element["city"]}</td>
+    <td>${element["ownership"]}</td>
+    <td>${element["admissionCapacity"]}</td>
+    <td>${element["hospitalBeds"]}</td>
+</tr>`;
+    });
+    tablebody.innerHTML = uistr;
+  })
+}
+colleges();
+
+
+function advices()
+{
+  url='https://api.rootnet.in/covid19-in/notifications';
+  fetch(url).then(function(response){
+    return response.text();
+  }).then(function(data)
+  {
+    let advice=document.getElementById('advices');
+    let str='';
+    let obj=JSON.parse(data);
+    obj.data.notifications.forEach((e)=>{
+      str+=`
+      <div class="card advices" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">NOTIFICATION</h5>
+        <p class="card-text">By ${e["title"]}</p>
+        <a href="${e["link"]}" class="btn btn-primary">Go To Link</a>
+      </div>
+    </div>`;
+    });
+    advice.innerHTML=str;
+})
+}
+advices();
+
+
+
+
+
 let signup = document.getElementById('signup');
 signup.addEventListener('click', function () {
   let signup_name = document.getElementById('signup_name');

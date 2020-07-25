@@ -12,14 +12,15 @@ html{
 
 .social_icons_img{
     list-style: none;
-    height: 20px;
+    height: 40px;
     width: auto;
     float: right;
     top: 5px;
-    margin: 5px;
+    padding-top: 20px;
 }
 .social_icons li{
     display: inline-block;
+    text-align: center;
 }
 .title{
     text-align: center;
@@ -95,5 +96,18 @@ font-family: 'PT Sans Narrow', sans-serif;
 #acordionExample:active{
     box-shadow: 5px 5px 10px;
     overflow: hidden;
+}
+
+.bgimg{
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+.advices{
+    display: inline-block;
+    width: 33%;
+    height:auto;
+    margin: 2px;
 }
 
